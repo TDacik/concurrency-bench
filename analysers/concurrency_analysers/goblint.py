@@ -15,6 +15,6 @@ class Tool(Goblint):
         original = super().cmdline(executable, options, task, rlimits)
         return original + [
                 "--ana.sv-comp.enabled=true",
-                "--ana.specification=benchmarks/programs/properties/no-data-race.prp",
-                "--conf=/home/tom/skola/goblint/analyzer/conf/svcomp22.json",
+                "--ana.specification=benchmarks/properties/no-data-race.prp",
+                "--conf=analysers/configs/goblint-svcomp22.json",
                 ]
