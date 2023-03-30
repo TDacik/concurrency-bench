@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE benchmark PUBLIC
+    "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN"
+    "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd"
+>
+
+<benchmark
+    tool="concurrency_analysers.racer"
+    timelimit="60s"
+    memlimit="1GB"
+    cpuCores="1"
+    threads="1"
+>
+
+<rundefinition name="Data races">
+    <tasks>
+        <include>../benchmarks/data_races/*/*.yml</include>
+        <propertyfile>../benchmarks/properties/no-data-race.prp></propertyfile>
+    </tasks>
+</rundefinition>
+
+</benchmark>
