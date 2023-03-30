@@ -35,6 +35,7 @@ def find_subdirs():
 
 
 def download_dir(project, path, target_path):
+    os.makedirs(target_path, exist_ok=True)
     files = project.repository_tree(path=path, all=True)
     for f in files:
         print(f["path"])
@@ -49,13 +50,15 @@ def download_dir(project, path, target_path):
         fl = p.files.get(file_path=f["path"], ref=BRANCH)
         content = base64.b64decode(fl.content).decode("utf-8")
         with open(target_path + "/" + f["name"], "w") as target:
+            if f["name"].endswith(".yml"):
+                content = content.replace("..", "../..")
+
             target.write(content)
 
 
 def download(project, subdirs):
     for subdir in subdirs:
-        bench_path = subdir.replace("c/", "benchmark/")
-        os.makedirs(bench_path, exist_ok=True)
+        bench_path = subdir.replace("c/", "benchmarks/data_races/")
         download_dir(project, subdir, bench_path)
 
 
@@ -63,3 +66,4 @@ if __name__ == "__main__":
     p = find_project()
     subdirs = find_subdirs()
     download(p, subdirs)
+    download_dir(p, "c/properties/", "benchmarks/properties/")
