@@ -274,7 +274,7 @@ extern signed int __xstat(signed int, const char *, struct stat *);
 static void ac_destroy(struct anonymous$13 *ac);
 // accept
 // file /usr/include/x86_64-linux-gnu/sys/socket.h line 243
-extern signed int accept(signed int, union anonymous, unsigned int *);
+extern signed int accept(signed int, void* anonymous, unsigned int *);
 // add_command
 // file fs.c line 772
 static void add_command(struct synth_struct *s, signed int id, unsigned char *buffer);
@@ -414,7 +414,7 @@ signed int is_dir(char *name);
 // file fs.c line 1033
 struct lang_struct * language_open(void *context, char * (*lookup)(void *, const char *));
 // language_open::lookup$object
-// 
+//
 char * lookup$object(void *, const char *);
 // listen
 // file /usr/include/x86_64-linux-gnu/sys/socket.h line 233
@@ -453,16 +453,16 @@ extern void perror(const char *);
 // file fs.c line 528
 static void * play(void *s);
 // play::1::1::1::__cancel_routine$object
-// 
+//
 void __cancel_routine$object(void *);
 // play::1::1::2::__cancel_routine$object
-// 
+//
 void __cancel_routine$object(void *);
 // play::1::1::5::__cancel_routine$object
-// 
+//
 void __cancel_routine$object(void *);
 // play::1::1::6::__cancel_routine$object
-// 
+//
 void __cancel_routine$object(void *);
 // printf
 // file /usr/include/stdio.h line 362
@@ -633,7 +633,7 @@ extern signed long int strtol(const char *, char ** restrict , signed int);
 // file fs.c line 347
 struct synth_struct * synth_open(void *context, char * (*lookup)(void *, const char *));
 // synth_open::lookup$object
-// 
+//
 char * lookup$object(void *, const char *);
 // synthesize
 // file fs.c line 654
@@ -1291,27 +1291,27 @@ static signed int ac_synthpos;
 static signed int ac_tail;
 // ascii
 // file es.c line 24
-char *ascii[256l] = { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "space", "bang", "quote", "number", "dollar", "percent", "and", "apostrophe", "left paren", "right paren", "star", "plus", "comma", "dash", "period", "slash", "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "colon", "semicolon", "less than", "equals", "greater than", "question", "at", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "left bracket", "backslash", "right bracket", "caret", "underline", "accent", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "left brace", "bar", "right brace", "tilda", "cap delta", "cap cedila", "u de arisis", "e accent a u", "a circumflex", "a de arisis", "accented a", "a with small circle accent", "cedila", "e circumflex", "e de arisis", "accented e", "i de arisis", "circumflex", "accented i", "cap a de arisis", "cap a with small circle accent", "cap e accent a u", "small a e", "cap a e", "o circumflex", "o de arisis", "accented o", "u circumflex", "accented u", "y de arisis", "cap o de arisis", "cap u de arisis", "cents sign", "pounds", "yen", "p sub t", "fancy f", "a accent a u", "i accent a u", "o accent a u", "u accent a u", "tilded n", "tilded cap n", "bar under a", "bar under o", "up side down question mark", "short horizontal with short left down", 
-    "short horizontal with short right down", 
-    "e half", "one quarter", "up side down exclamation point", "much less than", "much greater than", "dark shading", "medium shading", "light shading", "vertical bar", "vertical with centered left joint", "vertical with centered double left joint", 
-    "double vertical with centered left joint", 
-    "upper right corner with double vertical", 
-    "upper right corner with double horizontal", 
-    "double vertical with centered double left joint", 
-    "double vertical", "double upper right corner", "double lower right corner", "lower right corner with double vertical", 
-    "lower right corner with double horizontal", 
-    "upper right corner", "lower left corner", "horizontal with centered up joint", "horizontal with centered down joint", "vertical with centered right joint", "horizontal", "cross bars", "vertical bar with centered double right joint", 
-    "double vertical with centered right joint", 
-    "double lower left corner", "double upper left corner", "double horizontal with centered double up joint", 
-    "double horizontal with centered double down joint", 
-    "double vertical with centered double right joint", 
-    "double horizontal", "double cross form", "double horizontal with centered up joint", 
-    "horizontal with centered up joint", "double horizontal with centered down joint", 
-    "horizontal with centered double down joint", 
-    "lower left corner with double vertical", 
-    "lower left corner with double horizontal", 
-    "per left corner with double horizontal", 
-    "upper left corner with double vertical", 
+char *ascii[256l] = { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "space", "bang", "quote", "number", "dollar", "percent", "and", "apostrophe", "left paren", "right paren", "star", "plus", "comma", "dash", "period", "slash", "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "colon", "semicolon", "less than", "equals", "greater than", "question", "at", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "left bracket", "backslash", "right bracket", "caret", "underline", "accent", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "left brace", "bar", "right brace", "tilda", "cap delta", "cap cedila", "u de arisis", "e accent a u", "a circumflex", "a de arisis", "accented a", "a with small circle accent", "cedila", "e circumflex", "e de arisis", "accented e", "i de arisis", "circumflex", "accented i", "cap a de arisis", "cap a with small circle accent", "cap e accent a u", "small a e", "cap a e", "o circumflex", "o de arisis", "accented o", "u circumflex", "accented u", "y de arisis", "cap o de arisis", "cap u de arisis", "cents sign", "pounds", "yen", "p sub t", "fancy f", "a accent a u", "i accent a u", "o accent a u", "u accent a u", "tilded n", "tilded cap n", "bar under a", "bar under o", "up side down question mark", "short horizontal with short left down",
+    "short horizontal with short right down",
+    "e half", "one quarter", "up side down exclamation point", "much less than", "much greater than", "dark shading", "medium shading", "light shading", "vertical bar", "vertical with centered left joint", "vertical with centered double left joint",
+    "double vertical with centered left joint",
+    "upper right corner with double vertical",
+    "upper right corner with double horizontal",
+    "double vertical with centered double left joint",
+    "double vertical", "double upper right corner", "double lower right corner", "lower right corner with double vertical",
+    "lower right corner with double horizontal",
+    "upper right corner", "lower left corner", "horizontal with centered up joint", "horizontal with centered down joint", "vertical with centered right joint", "horizontal", "cross bars", "vertical bar with centered double right joint",
+    "double vertical with centered right joint",
+    "double lower left corner", "double upper left corner", "double horizontal with centered double up joint",
+    "double horizontal with centered double down joint",
+    "double vertical with centered double right joint",
+    "double horizontal", "double cross form", "double horizontal with centered up joint",
+    "horizontal with centered up joint", "double horizontal with centered down joint",
+    "horizontal with centered double down joint",
+    "lower left corner with double vertical",
+    "lower left corner with double horizontal",
+    "per left corner with double horizontal",
+    "upper left corner with double vertical",
     "cross with double vertical", "cross with double horizontal", "lower right corner", "upper left corner", "filled square", "filled lower half", "filled left half", "filled right half", "filled upper half", "alpha", "beta", "cap gamma", "pi", "cap sigma", "sigma", "mu", "tau", "cap phi", "theta", "cap omega", "delta", "infinity", "phi", "epsilon", "intersection", "is identical to", "plus minus", "greater than or equal", "less than or equal", "upper part of integral", "lower part of integral", "divide", "approximately equal", "degrees", "small dot", "tiny dot", "square root", "exponent n", "exponent 2", "filled square", "ascii 255" };
 // audiodev
 // file fs.c line 182
@@ -1355,7 +1355,7 @@ struct lang_struct lang = { .state=(struct lang_state *)(void *)0, .lang=&langua
 static struct lang_struct *lang$link1;
 // longopts
 // file es.c line 753
-static struct option longopts[2l] = { { .name="version", .has_arg=0, .flag=(signed int *)(void *)0, .val=118 }, 
+static struct option longopts[2l] = { { .name="version", .has_arg=0, .flag=(signed int *)(void *)0, .val=118 },
     { .name=(const char *)(void *)0, .has_arg=0, .flag=(signed int *)(void *)0,
     .val=0 } };
 // mt_attr
@@ -1399,7 +1399,7 @@ static struct synth_struct state[2l] = { { .state=&private_state[(signed long in
     .synth=s_synth, .flush=s_flush, .clear=s_clear,
     .index_set=(signed int (*)(struct synth_struct *))(void *)0, .index_wait=(signed int (*)(struct synth_struct *, signed int, signed int))(void *)0,
     .get_param=s_get_param,
-    .set_param=s_set_param }, 
+    .set_param=s_set_param },
     { .state=&private_state[(signed long int)1], .lang=&languages[(signed long int)1],
     .name="FLite/German",
     .lib_handle=(void *)0, .close=s_close,
@@ -2413,7 +2413,7 @@ void parse(struct client *client, char *buf)
         if(tmp_if_expr$25)
         {
           if(!(text_buffered == 0))
-            es_synthesize(client);
+            es_synthesize();
 
           signed int return_value_atoi$3;
           return_value_atoi$3=atoi(token[(signed long int)0]);
@@ -2447,7 +2447,7 @@ void parse(struct client *client, char *buf)
           if(tmp_if_expr$19)
           {
             if(!(text_buffered == 0))
-              es_synthesize(client);
+              es_synthesize();
 
             client->param[(signed long int)S_VOLUME]=atoi(token[(signed long int)0]);
           }
